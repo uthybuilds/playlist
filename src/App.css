@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffe4e6; /* soft pink */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #eeb3b3;
+  padding: 20px;
+  z-index: 1;
+  position: relative;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  background-color: #ec4899;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #db2777;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -40px;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ffe4e6;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;    /* horizontal center */
+  align-items: center;        /* vertical center */
+  height: 100vh;              /* full height */
+  text-align: center;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
