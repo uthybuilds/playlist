@@ -5,49 +5,91 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
-  height: 100vh;
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #eeb3b3;
+  min-height: 100vh;
+  width: 100%;
   padding: 20px;
+  box-sizing: border-box;
   z-index: 1;
   position: relative;
-  margin: auto;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2);
+  max-width: 90%;
+  width: 400px;
+  animation: fadeIn 1s ease-out;
+}
+
+.image-container {
+  margin-bottom: 1.5rem;
+}
+
+.love-icon {
+  width: 80px;
+  height: 80px;
+  color: #ec4899;
+  filter: drop-shadow(0 4px 6px rgba(236, 72, 153, 0.3));
+  animation: pulse 2s infinite ease-in-out;
 }
 
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin: 0;
+  color: #be185d;
 }
 
-p {
-  font-size: 1.2rem;
+.subtitle {
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  color: #db2777;
+  font-weight: 500;
 }
 
-button {
+.cta-button {
   background-color: #ec4899;
   color: white;
-  padding: 12px 24px;
+  padding: 16px 32px;
   border: none;
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-button:hover {
-  background-color: #db2777;
+.cta-button:hover {
+  background-color: #be185d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
 }
 
-/* Floating hearts */
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Floating hearts background animation */
 .heart {
   position: fixed;
   bottom: -40px;
@@ -55,42 +97,58 @@ button:hover {
   pointer-events: none;
   animation: floatUp linear forwards;
   z-index: 0;
+  color: #f472b6;
 }
 
 @keyframes floatUp {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(-120vh);
+    transform: translateY(-120vh) rotate(360deg);
     opacity: 0;
   }
 }
-.logo {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 20px;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #ffe4e6;
-  font-family: sans-serif;
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
-.container {
-  display: flex;
-  justify-content: center;    /* horizontal center */
-  align-items: center;        /* vertical center */
-  height: 100vh;              /* full height */
-  text-align: center;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.container div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 2rem;
+    width: 90%;
+  }
+  
+  .love-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
 }
